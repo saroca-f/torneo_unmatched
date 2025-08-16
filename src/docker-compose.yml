@@ -1,0 +1,38 @@
+services:
+  nginx:
+    container_name: nginx
+    build: ./nginx/
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/www:/var/www/html
+    depends_on:
+      - php
+    networks:
+      - tournament_unmatched
+
+  php:
+    container_name: php
+    image: php:8.2-fpm
+    # Probar con un Dockerfile personalizado si es necesario
+    volumes:
+      - ./nginx/www:/var/www/html
+      - ./data:/data
+    networks:
+      - tournament_unmatched
+    depends_on:
+      - sqlite
+
+  sqlite:
+    container_name: sqlite
+    image: nouchka/sqlite3
+    restart: always
+    volumes:
+      - ./data:/data
+    networks:
+      - tournament_unmatched
+
+networks:
+  tournament_unmatched:
+    driver: bridge

@@ -2,11 +2,12 @@ services:
   nginx:
     container_name: nginx
     build: ./nginx/
-    restart: always
+    restart: unless-stopped
     ports:
       - "8080:80"
     volumes:
       - ./nginx/www:/var/www/html
+      - ./data:/data
     depends_on:
       - php
     networks:
@@ -14,21 +15,10 @@ services:
 
   php:
     container_name: php
-    image: php:8.2-fpm
-    # Probar con un Dockerfile personalizado si es necesario
+    build: ./php/
+    restart: unless-stopped
     volumes:
       - ./nginx/www:/var/www/html
-      - ./data:/data
-    networks:
-      - tournament_unmatched
-    depends_on:
-      - sqlite
-
-  sqlite:
-    container_name: sqlite
-    image: nouchka/sqlite3
-    restart: always
-    volumes:
       - ./data:/data
     networks:
       - tournament_unmatched

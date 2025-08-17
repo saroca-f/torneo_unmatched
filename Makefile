@@ -16,8 +16,7 @@ erase:
 
 # Pendiente de actualizar
 reset:
-	@sudo rm -rf ~/data/mariadb ~/data/wordpress
-	@sudo rm -rf ~/data
+	@echo "Pendiente de actualizar"
 # Pendiente de actualizar
 
 re: down all
@@ -25,8 +24,8 @@ re: down all
 nginx:
 	@docker exec -it nginx /bin/bash
 
-sqlite:
-	@docker exec -it sqlite /bin/bash
+php:
+	@docker exec -it php /bin/bash
 
 recreate:
 	@$(DC) up -d --build --force-recreate

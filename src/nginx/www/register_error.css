@@ -1,0 +1,51 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: #3b3030;
+	font-family: sans-serif;
+}
+
+form, h1 {
+	position: relative;
+	z-index: 1;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #000000;
+	z-index: 1000;
+}
+
+p {
+	font-size: 1rem;
+	color: #ebe5e5;
+	padding: 2rem;
+	font-family: 'Anton', sans-serif;
+	background-color: #000000;
+	border-radius: 8px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+	width: auto;
+	margin: 1rem auto 1rem auto;
+	text-align: center;
+}
+
+button {
+	background-color: #ebe5e5;
+	color: #000000;
+	border: none;
+	padding: 0.7em 1.5em;
+	border-radius: 5px;
+	font-size: 1em;
+	cursor: pointer;
+	position: center;
+	display: block;
+	margin: 0 auto;
+}

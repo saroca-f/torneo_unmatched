@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Register_error</title>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+	<link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="register_error.css">
+</head>
+<body>
+    <div class="box">
+        <p id="msg"></p>
+        <button onclick="window.close()">Cerrar</button>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("msg").innerText = params.get("msg") || "Error desconocido";
+    </script>
+</body>
+</html>

@@ -21,11 +21,21 @@ try
     $confirm = $_POST['confirm_password'];
 
     // Politica de usuario y contraseña (Trabajar mas adelante)
-    if ($password !== $confirm) {
-        die("Las contraseñas no coinciden");
+    $stmt = $db->prepare("SELECT COUNT(*) FROM users WHERE username = :username");
+    $stmt->bindValue(':username', $username);
+    $stmt->execute();
+
+    $count = $stmt->fetchColumn();
+    if($count > 0) {
+        echo "<script>window.location.href='../register.html'; window.open('../register_error.html?msg=El+nombre+de+usuario+ya+existe', 'Error', 'width=400,height=200');</script>";
+        exit;
     }
-    if (empty($username) || empty($password)) {
-        die("Rellena todos los campos");
+
+    if (strlen($password) < 8) {
+        echo "<script>window.location.href='../register.html';
+        window.open('../register_error.html?msg=La+contraseña+debe+tener+al+menos+8+caracteres', 'Error', 'width=400,height=200');
+        </script>";
+        exit;
     }
 
     // Encriptar contraseña
@@ -37,7 +47,10 @@ try
     $stmt->bindValue(':password', $hashedPassword);
     $stmt->execute();
 
-    echo "Usuario creado con éxito";
+    echo "<script>
+        window.location.href='../login.html';
+        window.open('../register_error.html?msg=Usuario+creado+con+éxito', 'Error', 'width=400,height=200');
+        </script>";
 }
 catch (PDOException $e) 
 {

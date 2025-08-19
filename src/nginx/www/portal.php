@@ -1,4 +1,7 @@
 <?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,4 +13,3 @@
 	<h1>Bienvenido al Portal</h1>
 </body>
 </html>
-?>

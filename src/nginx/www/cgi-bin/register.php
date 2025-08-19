@@ -15,6 +15,7 @@ try
         password TEXT
     )");
 
+    echo "<script>window.open('../register_error.html?msg=2', 'Error', 'width=400,height=200');</script>";
     // Recibir datos del formulario
     $username = trim($_POST['user']);
     $password = $_POST['password'];

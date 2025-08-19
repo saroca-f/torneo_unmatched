@@ -7,7 +7,7 @@ services:
       - "8080:80"
     volumes:
       - ./nginx/www:/var/www/html
-      - ./data:/data
+      - ./data:/data:rw
     depends_on:
       - php
     networks:
@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./nginx/www:/var/www/html
-      - ./data:/data
+      - ./data:/data:rw
     networks:
       - tournament_unmatched
 

@@ -1,3 +1,0 @@
-this is an example of a file to download using the GET method. 
-The download html implementation and the HTTP request were done by saroca-f
-The HTTP response was done by me.

@@ -14,10 +14,8 @@ erase:
 	@sudo docker volume ls -q | xargs -r docker volume rm
 	@sudo docker system prune -a --volumes -f
 
-# Pendiente de actualizar
 reset:
-	@echo "Pendiente de actualizar"
-# Pendiente de actualizar
+	@sudo docker compose -f $(COMPOSE_FILE) restart nginx php
 
 re: down all
 

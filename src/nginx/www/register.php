@@ -12,10 +12,10 @@ try
     $db->exec("CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE,
-        password TEXT
+        password TEXT,
+        avatar TEXT DEFAULT 'default.png'
     )");
 
-    echo "<script>window.open('../register_error.html?msg=2', 'Error', 'width=400,height=200');</script>";
     // Recibir datos del formulario
     $username = trim($_POST['user']);
     $password = $_POST['password'];

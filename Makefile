@@ -3,6 +3,7 @@ DC := docker compose -f $(COMPOSE_FILE)
 
 all:
 	@sudo $(DC) up -d --build
+	@sudo chmod 777 ./src/data
 
 down:
 	@sudo $(DC) down

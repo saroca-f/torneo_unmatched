@@ -38,6 +38,7 @@
         <title>Perfil</title>
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="perfil.css">
+        <script src="perfil.js" defer></script>
     </head>
     <body>
         <div id ="menu">
@@ -47,7 +48,7 @@
                 <form action="avatarUpload.php" method="post" enctype="multipart/form-data" class="upload-form">
                     <label for="archivo"></label>
                     <input type="file" name="archivo" id="archivo" required>
-                    <button type="submit">Subir</button>
+                    <button type="submit">Cambiar Avatar</button>
                 </form>
             </div>
             <div id="username">
@@ -56,11 +57,19 @@
                 <form action="usernameUpload.php" method="post" enctype="multipart/form-data">
                     <label for="name">Nuevo nombre de usuario</label>
                     <input type="text" name="name" id="name" required>
-                    <button type="submit">Actualizar</button>
+                    <button type="submit">Cambiar Usuario</button>
                 </form>
             </div>
             <div id ="password">
                 <h1>Cambiar contraseña</h1>
+                <form action="passwordUpload.php" method="post" enctype="multipart/form-data">
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password" required placeholder="Vieja contraseña" autocomplete="off"><br>
+                    <label for="newpassword"></label>
+                    <input type="password" name="newpassword" id="newpassword" required placeholder="Nueva contraseña" autocomplete="off"><br>
+                    <label for="renewpassword"></label>
+                    <input type="password" name="renewpassword" id="renewpassword" required placeholder="Repetir nueva contraseña" autocomplete="off"><br>
+                    <button type="submit" id="changePasswordBtn">Cambiar contraseña</button>
             </div>
             <div id="back">
                 <a href="portal.php"><img src="./img_src/salida.jpg" alt="back"></a>

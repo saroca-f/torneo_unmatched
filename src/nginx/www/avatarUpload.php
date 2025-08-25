@@ -48,7 +48,7 @@
                 $stmt->execute();
 
                 echo "<script>window.open('./register_error.html?msg=Avatar+actualizado+exitosamente.', 'Error', 'width=400,height=200');
-                    window.location.href='portal.php';</script>";
+                    window.location.href='perfil.php';</script>";
             } 
             else {
                 echo "<script>window.open('./register_error.html?msg=Error+al+subir+el+archivo.', 'Error', 'width=400,height=200');</script>";
